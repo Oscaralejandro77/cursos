@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+
+<html lang="es">
+
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@1,300&display=swap" rel="stylesheet">
+
+ <title>Curso</title>
+</head>
+
+<style>
+	body{
+		margin: 0px;
+		background-color: #023e8a;
+		font-family: 'Mulish', sans-serif;
+	}
+	.header{
+		background-color: #023e8a;
+		width: 100%;
+		height: 80px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.header__img{
+		width: 200px;
+		margin-top: 10px;
+        margin-left: 10px;
+	}
+
+	.header__menu{
+		margin-right: 30px;
+	}
+
+	.header__menu ul{
+		display: none;
+		list-style: none;
+		padding: 0px;
+		position: absolute;
+		width: 100px;
+		text-align: right;
+		margin: 0px 0px 0px -14px;
+	}
+
+	.header__menu:hover ul, ul:hover{
+		display: block;
+	}
+
+	.header__menu li{
+		margin: 10px 0px;
+	}
+
+	.header__menu li a {
+		color: white;
+		text-decoration: none;
+	}
+
+	.header__menu li a:hover {
+		text-decoration: underline;
+	}
+
+	.header__menu--profile{
+		margin-right: 8px;
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+	}
+
+	.header__menu--profile img{
+		margin-right: 10px;
+		width: 40px;
+	}
+
+	.header__menu--profile p{
+		margin: 0px;
+		color: white;
+	}
+
+	.main {
+		height: 300px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.main__title {
+		color: white;
+		font-size: 25px;
+	}
+
+	.input {
+		background-color: rgba(255, 255, 255, 0.1);
+		border: 3px solid white;
+		border-radius: 25px;
+		color: white;
+		font-family: 'Mulish', sans-serif;
+		font-size: 16px;
+		height: 50px;
+		padding: 0px 30px;
+		width: 70%;
+		outline-style: none;
+	}
+
+	::placeholder {
+		color: white;
+	}
+
+	.carousel {
+		width: 100%;
+		overflow: scroll;
+		padding: 30px;
+		position: relative;
+	}
+
+	.carousel__container{
+		white-space: nowrap; /*para que los elementos no vayan uno debajo del otro*/
+		margin: 40px 0px;
+		padding-bottom: 10px;
+	}
+
+	.carousel-item{
+		width: 200px;
+		height: 250px;
+		border-radius: 20px;
+		overflow: hidden;
+		display: inline-block;/*para que los elementos no vayan uno debajo del otro*/
+		cursor: pointer;
+		transition: 450ms all; /*tiempo en que tarda en animar una animacion*/
+		transform-origin: center left;
+		position: relative;
+	}
+
+	.carousel::-webkit-scrollbar {
+		display: none;
+		
+	}
+
+	.carousel-item:hover ~ .carousel-item{
+		transform: translate3d(100px, 0, 0); /*espaciado a la derecha*/
+	}
+	
+	.carousel__container:hover .carousel-item{
+		opacity: 0.3;
+	}
+
+	.carousel__container:hover .carousel-item:hover{
+		transform: scale(1.5); /*para que se haga mas grande hacia la pantalla*/
+		opacity: 1;
+	}
+
+	.carousel-item__img {
+		width: 250px;
+		height: 250px;
+		object-fit: cover; /*la imagen recupera su tamaño original*/
+	}
+
+	.carousel-item__details{
+		background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%); /*degradado de colores arriva y abajo*/
+		font-size: 10px;
+		opacity: 1;
+		transition: 200ms opacity; /* completa el degradado de colores(linear-gradient) para que suceda paulativamente*/
+		padding: 10%;
+		position: absolute;
+		top: 0;
+		left: 0,
+		right 0;
+		bottom: 0;
+
+		display: flex;
+		flex-flow: column;
+        justify-content: flex-end;
+        color: white;
+	}
+
+	carousel-item__details:hover {
+    opacity: 1;
+}
+
+.carousel-item__details--icon {
+    width: 20px;
+    height: 20px;
+    margin: none;
+}
+
+.carousel-item__details--title, .carousel-item__details--subtitle  {
+    color: #ffffff;
+    font-size: 12px;
+    width: 200px;
+}
+
+h1{
+	font-size: 20px;
+	color: white;
+	margin: 0px 25px;
+	height: 1px;
+}
+
+</style>
+
+<body>
+	<header class="header">
+		<img class="header__img" src="C:\Users\DaveFuck\Music\platzi.png">
+
+		<div class="header__menu">
+			<div class="header__menu--profile">
+			<img src="C:\Users\DaveFuck\Music\curso css\user.png" alt="usuario">
+			<p>Perfil</p>
+			</div>
+
+			<ul>
+			<li><a href="/">Cuenta</a></li>
+			<li><a href="/">Cerrar Seción</a></li>
+		    </ul>
+		</div>
+		
+	</header>
+
+	<section class="main">
+		<h2 class="main__title">¿Que quieres ver hoy :) ?</h2>
+		<input class="input" type="text" placeholder="Buscar...">
+	</section>
+
+    <h1>Lo mas visto</h1>
+
+	<section class="carousel">
+		<div class="carousel__container">
+			<div class="carousel-item">
+			    <img class="carousel-item__img" src="C:\Users\DaveFuck\Pictures\Saved Pictures\IMG_20200516_162208.jpg" alt="railgun">
+				<div class="carousel-item__details">
+						<div>
+					    <img class="carousel-item__details--icon" src= "https://img.icons8.com/flat_round/64/000000/play--v1.png" alt="Play">
+						<img class="carousel-item__details--icon" src="https://img.icons8.com/flat_round/64/000000/plus.png" alt="Plus">
+						</div>
+					
+						<p class="carousel-item__details--title">Titulo descriptivo</p>
+						<p class="carousel-item__details--subtitle">2021 16+ 555 minutos</p>
+				</div>
+			</div>
+
+			<div class="carousel-item">
+			    <img class="carousel-item__img" src="C:\Users\DaveFuck\Pictures\Saved Pictures\IMG_20200707_163035.jpg" alt="railgun">
+				<div class="carousel-item__details">
+						<div>
+					    <img class="carousel-item__details--icon" src= "https://img.icons8.com/flat_round/64/000000/play--v1.png" alt="Play">
+						<img class="carousel-item__details--icon" src="https://img.icons8.com/flat_round/64/000000/plus.png" alt="Plus">
+						</div>
+					
+						<p class="carousel-item__details--title">Titulo descriptivo</p>
+						<p class="carousel-item__details--subtitle">2021 16+ 555 minutos</p>
+				</div>
+			</div>
+
+			<div class="carousel-item">
+			    <img class="carousel-item__img" src="C:\Users\DaveFuck\Pictures\Saved Pictures\IMG_20200707_163149.jpg" alt="railgun">
+				<div class="carousel-item__details">
+						<div>
+					    <img class="carousel-item__details--icon" src= "https://img.icons8.com/flat_round/64/000000/play--v1.png" alt="Play">
+						<img class="carousel-item__details--icon" src="https://img.icons8.com/flat_round/64/000000/plus.png" alt="Plus">
+						</div>
+					
+						<p class="carousel-item__details--title">Titulo descriptivo</p>
+						<p class="carousel-item__details--subtitle">2021 16+ 555 minutos</p>
+				</div>
+			</div>
+
+			<div class="carousel-item">
+			    <img class="carousel-item__img" src="C:\Users\DaveFuck\Pictures\Saved Pictures\IMG_20200629_160604.jpg" alt="railgun">
+				<div class="carousel-item__details">
+						<div>
+					    <img class="carousel-item__details--icon" src= "https://img.icons8.com/flat_round/64/000000/play--v1.png" alt="Play">
+						<img class="carousel-item__details--icon" src="https://img.icons8.com/flat_round/64/000000/plus.png" alt="Plus">
+						</div>
+					
+						<p class="carousel-item__details--title">Titulo descriptivo</p>
+						<p class="carousel-item__details--subtitle">2021 16+ 555 minutos</p>
+				</div>
+			</div>
+
+			<div class="carousel-item">
+			    <img class="carousel-item__img" src="C:\Users\DaveFuck\Pictures\Saved Pictures\IMG_20200629_011745.jpg" alt="railgun">
+				<div class="carousel-item__details">
+						<div>
+					    <img class="carousel-item__details--icon" src= "https://img.icons8.com/flat_round/64/000000/play--v1.png" alt="Play">
+						<img class="carousel-item__details--icon" src="https://img.icons8.com/flat_round/64/000000/plus.png" alt="Plus">
+						</div>
+					
+						<p class="carousel-item__details--title">Titulo descriptivo</p>
+						<p class="carousel-item__details--subtitle">2021 16+ 555 minutos</p>
+				</div>
+			</div>
+
+			<div class="carousel-item">
+			    <img class="carousel-item__img" src="C:\Users\DaveFuck\Pictures\Saved Pictures\IMG_20200603_154054.jpg" alt="railgun">
+				<div class="carousel-item__details">
+						<div>
+					    <img class="carousel-item__details--icon" src= "https://img.icons8.com/flat_round/64/000000/play--v1.png" alt="Play">
+						<img class="carousel-item__details--icon" src="https://img.icons8.com/flat_round/64/000000/plus.png" alt="Plus">
+						</div>
+					
+						<p class="carousel-item__details--title">Titulo descriptivo</p>
+						<p class="carousel-item__details--subtitle">2021 16+ 555 minutos</p>
+				</div>
+			</div>
+
+			<div class="carousel-item">
+			    <img class="carousel-item__img" src="C:\Users\DaveFuck\Pictures\Saved Pictures\tbhc2.jpg" alt="railgun">
+				<div class="carousel-item__details">
+						<div>
+					    <img class="carousel-item__details--icon" src= "https://img.icons8.com/flat_round/64/000000/play--v1.png" alt="Play">
+						<img class="carousel-item__details--icon" src="https://img.icons8.com/flat_round/64/000000/plus.png" alt="Plus">
+						</div>
+					
+						<p class="carousel-item__details--title">Titulo descriptivo</p>
+						<p class="carousel-item__details--subtitle">2021 16+ 555 minutos</p>
+				</div>
+			</div>
+
+			<div class="carousel-item">
+			    <img class="carousel-item__img" src="C:\Users\DaveFuck\Pictures\Saved Pictures\joji.jpg" alt="railgun">
+				<div class="carousel-item__details">
+						<div>
+					    <img class="carousel-item__details--icon" src= "https://img.icons8.com/flat_round/64/000000/play--v1.png" alt="Play">
+						<img class="carousel-item__details--icon" src="https://img.icons8.com/flat_round/64/000000/plus.png" alt="Plus">
+						</div>
+					
+						<p class="carousel-item__details--title">Titulo descriptivo</p>
+						<p class="carousel-item__details--subtitle">2021 16+ 555 minutos</p>
+				</div>
+			</div>
+
+
+
+
+
+		</div>
+		
+	</section>
+	
+</body>
+
+<footer>
+</footer>
+
+</html>
