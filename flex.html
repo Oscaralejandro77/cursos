@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+
+<html lang="es">
+
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+ <title>FLEX</title>
+
+</head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    flex-flow: column;
+    font-size: 16px;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+}
+
+.header{
+    outline: 1px solid gold;
+    height: 3rem;
+}
+
+.container{
+    display: flex;
+    height: inherit;
+}
+
+.content {
+    outline: 1px solid cyan;
+    flex: 1;
+}
+
+.aside{
+
+    outline: 1px solid magenta;
+    flex: 0 0 25%;
+}
+
+.footer{
+    outline: 1px solid salmon;
+    height: 6rem;
+    margin-top: auto; /*automaticamente coloca de margen hacia abajo el footer*/
+
+}
+
+.menu {
+    display: flex;
+}
+
+</style>
+
+<body>
+
+	<header class="header">
+        <ul class="menu">
+            <li class="menu-item">Home</li>
+            <li class="menu-item">Galeri</li>
+            <li class="menu-item">Contact</li>
+            <li class="menu-item">about</li>
+        </ul>
+    </header>
+      
+    <section class="container">
+        <section class="content">content</section>
+        <aside class="aside">aside</aside>
+    </section>
+
+
+  	<footer class="footer">
+        footer
+	</footer>
+
+</body>
+
+</html>
